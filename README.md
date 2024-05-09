@@ -1,4 +1,4 @@
-Command run the project :- yarn start 
+Command to run the project :- ```bash yarn start ```
 
 Table 1 
 
