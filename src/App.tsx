@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Table1, Table2 } from "./components/Tables";
+import "@mantine/core/styles.css";
 
-function App() {
+const App = () => {
+  const [tableSwitchButton, setTableSwitchButton] = useState<boolean>(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        marginTop: "20px",
+        marginBottom: "20px",
+      }}
+    >
+      <div
+        style={{
+          marginTop: "20px",
+        }}
+      >
+        <button onClick={() => setTableSwitchButton(!tableSwitchButton)}>
+          {tableSwitchButton ? "Table 1" : "Table 2"}
+        </button>
+      </div>
+      <div
+        style={{
+          marginTop: "20px",
+        }}
+      >
+        {tableSwitchButton ? <Table1 /> : <Table2 />}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
